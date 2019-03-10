@@ -1,0 +1,38 @@
+{
+  "name": "backlog-server",
+  "version": "1.0.0",
+  "description": "Backend Server for To Do List App",
+  "main": "server.js",
+  "scripts": {
+    "build": "npm run clean && babel . --out-dir dist --ignore node_modules --source-maps inline",
+    "clean": "rimraf ./dist/",
+    "serve": "node dist/server.js",
+    "start": "nodemon --exec babel-node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NSuri1/backlog-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NSuri1/backlog-server/issues"
+  },
+  "homepage": "https://github.com/NSuri1/backlog-server#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-async-to-generator": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3"
+  }
+}
