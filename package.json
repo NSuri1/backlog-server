@@ -6,8 +6,9 @@
   "scripts": {
     "build": "npm run clean && babel . --out-dir dist --ignore node_modules --source-maps inline",
     "clean": "rimraf ./dist/",
+    "dev": "nodemon --exec babel-node server.js",
     "serve": "node dist/server.js",
-    "start": "nodemon --exec babel-node server.js",
+    "start": "npm run build && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
