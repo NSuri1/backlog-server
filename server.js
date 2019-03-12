@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import config from './config.js';
 import api from './api';
+import db from './db'
 
 const app = express();
 
@@ -24,8 +25,8 @@ app.get('/', (req, res) => {
 
 app.listen(config.port, () => {
 	console.log(`Backlog server now up on http://localhost:${config.port}`);
-	// const dbUri = (config.db.username && config.db.password)
-	// 	? `mongodb://${config.db.username}:${config.db.password}@${config.db.url}/${config.db.name}`
-	// 	: `mongodb://${config.db.url}/${config.db.name}`;
-	// db.connect(dbUri);
+	const dbUri = (config.db.username && config.db.password)
+		? `mongodb+srv://${config.db.username}:${config.db.password}@${config.db.url}/${config.db.name}`
+		: `mongodb+srv://${config.db.url}/${config.db.name}`;
+	db.connect(dbUri);
 });
