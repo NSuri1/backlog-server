@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import config from './config.js';
 import api from './api';
-import db from './db'
+import db from './db';
 
 const app = express();
 
