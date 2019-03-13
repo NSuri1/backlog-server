@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import config from './config.js';
+import config from './config';
 import api from './api';
 import db from './db';
 
@@ -12,21 +12,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-	next();
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
 app.use(`/api/${config.apiVersion}`, api);
 
-app.get('/', (req, res) => {
-	res.send('Hello There!');
+app.get('/', (req, res) => { // Route
+  res.send('Hello There!');
 });
 
-app.listen(config.port, () => {
-	console.log(`Backlog server now up on http://localhost:${config.port}`);
-	const dbUri = (config.db.username && config.db.password)
-		? `mongodb+srv://${config.db.username}:${config.db.password}@${config.db.url}/${config.db.name}`
-		: `mongodb+srv://${config.db.url}/${config.db.name}`;
-	db.connect(dbUri);
+app.listen(config.port, () => { // Starts the server
+  console.log(`Backlog server now up on http://localhost:${config.port}`);
+  const dbUri = (config.db.username && config.db.password)
+    ? `mongodb+srv://${config.db.username}:${config.db.password}@${config.db.url}/${config.db.name}`
+    : `mongodb+srv://${config.db.url}/${config.db.name}`;
+  db.connect(dbUri);
 });

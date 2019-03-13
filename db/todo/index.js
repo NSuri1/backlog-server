@@ -1,2 +1,2 @@
 import Todo from './model'
-export default {Todo}
+export default Todo
