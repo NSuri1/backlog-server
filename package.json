@@ -4,7 +4,7 @@
   "description": "Backend Server for To Do List App",
   "main": "server.js",
   "scripts": {
-    "build": "npm run clean && babel . --out-dir dist --ignore node_modules --source-type unambiguous",
+    "build": "npm run clean && babel . --out-dir dist --ignore node_modules",
     "clean": "rimraf ./dist/",
     "serve": "node dist/server.js",
     "start": "nodemon --exec babel-node server.js",
