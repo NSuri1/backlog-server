@@ -9,7 +9,8 @@
     "serve": "node dist/server.js",
     "start": "nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix ./*"
+    "lint": "eslint --fix ./*",
+    "heroku-postbuild": "npm start"
   },
   "engines": {
     "node": "11.0.0",
